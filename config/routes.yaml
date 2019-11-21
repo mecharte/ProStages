@@ -1,3 +1,15 @@
-#open_class_dut:
-#   path: /accueil
-#  controller: App\Controller\OpenClassDutController::index
+open_class_dut:
+  path: /accueil
+  controller: App\Controller\OpenClassDutController::index
+
+entreprises:
+  path: /entreprises
+  controller: App\Controller\OpenClassDutController::index2
+
+formation:
+  path: /formation
+  controller: App\Controller\OpenClassDutController::index3
+
+stages:
+  path: /stages/{id}
+  controller: App\Controller\OpenClassDutController::index4
