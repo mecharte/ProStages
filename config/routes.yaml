@@ -13,3 +13,7 @@ formation:
 stages:
   path: /stages/{id}
   controller: App\Controller\OpenClassDutController::index4
+
+affichagesRessources:
+  path: /affichagesRessources/{nb}
+  controller: App\Controller\OpenClassDutController::afficherRessourcesPeda

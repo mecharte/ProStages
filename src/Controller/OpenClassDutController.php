@@ -37,4 +37,11 @@ class OpenClassDutController extends AbstractController
             'StageID' => $id,
         ]);
     }
+
+    public function afficherRessourcesPeda($nb)
+    {
+        return $this->render('open_class_dut/affichagesRessources.html.twig', [
+            'afficherRessourceNB' => $nb,
+        ]);
+    }
 }
