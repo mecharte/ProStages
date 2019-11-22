@@ -20,7 +20,7 @@ class OpenClassDutController extends AbstractController
     public function index2()
     {
         return $this->render('open_class_dut/entreprises.html.twig', [
-            'controller_name' => 'ControleurOpenClassDut',
+            'controller_name' => 'entreprises',
         ]);
     }
 
