@@ -30,7 +30,7 @@ class OpenClassDutController extends AbstractController
             'controller_name' => 'ControleurOpenClassDut',
         ]);
     }
-
+    
     public function index4($id)
     {
         return $this->render('open_class_dut/stages.html.twig', [
