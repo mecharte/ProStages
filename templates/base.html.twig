@@ -2,20 +2,92 @@
 <html>
     <head>
         <meta charset="UTF-8">
+         <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
+
         <title>{% block title %}ProStage{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         {% block slider %}
-        <h1>-------------SLIDER-----------------------</h1>
+
+        <h1>Bienvenue sur Prostages</h1>
+            <p>
+                Vous trouverez si dessous les dernières ressources pédagogiques ajoutées sur proStage
+                <a href="#" class="alert-link">en savoir plus</a>
+            </p>
         {% endblock %}
         {% block menu %}
-        <h1>-------------MENU-----------------------</h1>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                        <table class="table table-dark">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Entreprise</th>
+                                    <th scope="col">Stage</th>
+                                    <th scope="col">Contact</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Safran</td>
+                                    <td>Stage de Développement Web</td>
+                                    <td>Safran@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Eodix</td>
+                                    <td>Stage de Développement Web</td>
+                                    <td>Safran@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>ALTANOVEO</td>
+                                    <td>Stage de Développement Web</td>
+                                    <td>Safran@gmail.com</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                </div>
+                <div class="col-md-3">
+                        <div class="row">
+                                <div class="col-4">
+                                  <div class="list-group" id="list-tab" role="tablist">
+                                    <a class="list-group-item list-group-item-action active" id="list-ProStage-list" data-toggle="list" href="" role="tab" aria-controls="ProStage">ProStage</a>
+                                    <a class="list-group-item list-group-item-action" id="list-Formation-list" data-toggle="list" href="formation" role="tab" aria-controls="Formation">Formation</a>
+                                    <a class="list-group-item list-group-item-action" id="list-entreprises-list" data-toggle="list" href="entreprises" role="tab" aria-controls="entreprises">Entreprise</a>
+                                    
+                                  </div>
+                                </div>
+                                <div class="col-8">
+                                  <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-ProStage" role="tabpanel" aria-labelledby="list-ProStage-list">...</div>
+                                    <div class="tab-pane fade" id="list-Formation" role="tabpanel" aria-labelledby="list-Formation-list">...</div>
+                                    <div class="tab-pane fade" id="list-entreprises" role="tabpanel" aria-labelledby="list-entreprises-list">...</div>
+                                  </div>
+                                </div>
+                              
+                        </div>
+                </div>
+        </div>
+        
         {% endblock %}
         {% block contenu %}
         {% endblock %}
         {% block footer %}
-        <h1>-------------FOOTER-----------------------</h1>
+        <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
         {% endblock %}
         {% block javascripts %}
         {% endblock %}
