@@ -10,15 +10,13 @@
     </head>
     <body>
         {% block slider %}
-
-        <h1>Bienvenue sur Prostages</h1>
-            <p>
-                Vous trouverez si dessous les dernières ressources pédagogiques ajoutées sur proStage
-                <a href="#" class="alert-link">en savoir plus</a>
-            </p>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0"><h1>Bienvenue sur Prostages</h1></p>
+        </blockquote>
         {% endblock %}
         {% block menu %}
-        
+        <br>
+        <br>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
@@ -53,25 +51,12 @@
                                 </tbody>
                               </table>
                 </div>
-                <div class="col-md-3">
-                        <div class="row">
-                                <div class="col-4">
-                                  <div class="list-group" id="list-tab" role="tablist">
-                                    <a class="list-group-item list-group-item-action active" id="list-ProStage-list" data-toggle="list" href="" role="tab" aria-controls="ProStage">ProStage</a>
-                                    <a class="list-group-item list-group-item-action" id="list-Formation-list" data-toggle="list" href="formation" role="tab" aria-controls="Formation">Formation</a>
-                                    <a class="list-group-item list-group-item-action" id="list-entreprises-list" data-toggle="list" href="entreprises" role="tab" aria-controls="entreprises">Entreprise</a>
-                                    
-                                  </div>
-                                </div>
-                                <div class="col-8">
-                                  <div class="tab-content" id="nav-tabContent">
-                                    <div class="tab-pane fade show active" id="list-ProStage" role="tabpanel" aria-labelledby="list-ProStage-list">...</div>
-                                    <div class="tab-pane fade" id="list-Formation" role="tabpanel" aria-labelledby="list-Formation-list">...</div>
-                                    <div class="tab-pane fade" id="list-entreprises" role="tabpanel" aria-labelledby="list-entreprises-list">...</div>
-                                  </div>
-                                </div>
-                              
-                        </div>
+                <div class="col-md-3">     
+                  <ul class="list-group">
+                      <li class="list-group-item"><h1><center> Filtrer par </center></h1>  </li> 
+                    <li class="list-group-item"><a href="entreprises">Entreprise</a> </li> 
+                    <li class="list-group-item"><a href="formation">Formation</a> </li> 
+                  </ul>
                 </div>
         </div>
         
@@ -79,15 +64,7 @@
         {% block contenu %}
         {% endblock %}
         {% block footer %}
-        <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-              </nav>
+        <p>Site réalisé par Mathieu Echarte avec les frameworks <a href="https://symfony.com">Symfony</a> et <a href="https://getbootstrap.com">Bootstrap</a></p>
         {% endblock %}
         {% block javascripts %}
         {% endblock %}
