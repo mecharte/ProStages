@@ -1,4 +1,4 @@
-open_class_dut:
+proStage:
   path: /
   controller: App\Controller\OpenClassDutController::index
 
