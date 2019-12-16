@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
          <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/fontello.css')}}">
 
         <title>{% block title %}ProStage{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
@@ -11,7 +12,7 @@
     <body>
         {% block slider %}
         <blockquote class="blockquote text-center">
-            <p class="mb-0"><h1>Bienvenue sur Prostages</h1></p>
+            <p class="mb-0"><h1><center><i class="icon-lastfm-1"></i>Prostages</center></h1></p>
         </blockquote>
         {% endblock %}
         {% block menu %}
@@ -54,7 +55,7 @@
                 <div class="col-md-3">     
                   <ul class="list-group">
                       <li class="list-group-item"><h1><center> Filtrer par </center></h1>  </li> 
-                    <li class="list-group-item"><a href="entreprises">Entreprise</a> </li> 
+                    <li class="list-group-item"><a href="{{path('entreprises')}}">Entreprise</a> </li> 
                     <li class="list-group-item"><a href="formation">Formation</a> </li> 
                   </ul>
                 </div>
