@@ -28,18 +28,122 @@ class AppFixtures extends Fixture
         $Formation_DU_TIC->setNomCourt("DU TIC");
         $manager->persist($Formation_DU_TIC);
 
-        // Création de donnée avec FAKER
+         //Création du tableau
+         $tabFormation=array($Formation_DU_TIC,$Formation_Licence_Professionnel_Multimedia,$Formation_DUT_Informatique);
+        //Persiste de mes données du tabEntreprise
+        foreach($tabFormation as $typeFormation){
+            $manager->persist($typeFormation);
+        }
+
+        /*// Création de donnée avec FAKER
         $nbEntreprises = 15;
         for($i=1;$i <= $nbEntreprises;$i++){
-            $Entreprise_1= new Entreprise();
-            $Entreprise_1->setNom($faker->realText($maxNbChars = 200, $indexSize = 2));
-            $Entreprise_1->setActivite($faker->regexify('Bonjour[A-Z],[A-Z]{1,45}'));
-            $Entreprise_1->setAdresse($faker->address);
-            $Entreprise_1->setSiteWeb($faker->url);
-            $manager->persist($Entreprise_1);
+            $Entreprise= new Entreprise();
+            $Entreprise->setNom($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise->setActivite($faker->regexify('Bonjour[A-Z],[A-Z]{1,45}'));
+            $Entreprise->setAdresse($faker->address);
+            $Entreprise->setSiteWeb($faker->url);
+            $manager->persist($Entreprise);
         }
-        
+        */
 
+            $Entreprise_SAFRAN= new Entreprise();
+            $Entreprise_SAFRAN->setNom("SAFRAN");
+            $Entreprise_SAFRAN->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_SAFRAN->setAdresse($faker->address);
+            $Entreprise_SAFRAN->setSiteWeb("Safran.com");
+            
+
+            $Entreprise_ALTANOVEO= new Entreprise();
+            $Entreprise_ALTANOVEO->setNom("ALTANOVEO");
+            $Entreprise_ALTANOVEO->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_ALTANOVEO->setAdresse($faker->address);
+            $Entreprise_ALTANOVEO->setSiteWeb("Altanoveo.com");
+            
+
+            $Entreprise_THALES= new Entreprise();
+            $Entreprise_THALES->setNom("THALES");
+            $Entreprise_THALES->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_THALES->setAdresse($faker->address);
+            $Entreprise_THALES->setSiteWeb("Thales.com");
+            
+
+            $Entreprise_BIOLUZ= new Entreprise();
+            $Entreprise_BIOLUZ->setNom("BIOLUZ");
+            $Entreprise_BIOLUZ->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_BIOLUZ->setAdresse($faker->address);
+            $Entreprise_BIOLUZ->setSiteWeb("Bioluz.com");
+            
+
+            $Entreprise_QUIKSILVER= new Entreprise();
+            $Entreprise_QUIKSILVER->setNom("QUIKSILVER");
+            $Entreprise_QUIKSILVER->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_QUIKSILVER->setAdresse($faker->address);
+            $Entreprise_QUIKSILVER->setSiteWeb("Quiksilver.com");
+            
+
+            $Entreprise_POLYCLINIQUE= new Entreprise();
+            $Entreprise_POLYCLINIQUE->setNom("POLYCLINIQUE");
+            $Entreprise_POLYCLINIQUE->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_POLYCLINIQUE->setAdresse($faker->address);
+            $Entreprise_POLYCLINIQUE->setSiteWeb("Polyclinique.com");
+            
+
+            $Entreprise_CAPGEMINI= new Entreprise();
+            $Entreprise_CAPGEMINI->setNom("CAPGEMINI");
+            $Entreprise_CAPGEMINI->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_CAPGEMINI->setAdresse($faker->address);
+            $Entreprise_CAPGEMINI->setSiteWeb("Capgemini.com");
+            
+
+            $Entreprise_TATTOO= new Entreprise();
+            $Entreprise_TATTOO->setNom("TATTOO");
+            $Entreprise_TATTOO->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_TATTOO->setAdresse($faker->address);
+            $Entreprise_TATTOO->setSiteWeb("Tattoo.com");
+            
+
+            $Entreprise_APPLE= new Entreprise();
+            $Entreprise_APPLE->setNom("APPLE");
+            $Entreprise_APPLE->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_APPLE->setAdresse($faker->address);
+            $Entreprise_APPLE->setSiteWeb("Apple.com");
+            
+
+            $Entreprise_MCDONALD= new Entreprise();
+            $Entreprise_MCDONALD->setNom("MC DONALDS");
+            $Entreprise_MCDONALD->setActivite($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Entreprise_MCDONALD->setAdresse($faker->address);
+            $Entreprise_MCDONALD->setSiteWeb("Mcdonalds.com");
+            
+            
+            //Création du tableau
+            $tabEntreprise=array($Entreprise_ALTANOVEO,$Entreprise_APPLE,$Entreprise_BIOLUZ,$Entreprise_MCDONALD,$Entreprise_POLYCLINIQUE,
+                                $Entreprise_QUIKSILVER,$Entreprise_SAFRAN,$Entreprise_TATTOO,$Entreprise_THALES,$Entreprise_CAPGEMINI);
+
+            //Persiste de mes données du tabEntreprise
+            foreach($tabEntreprise as $typeEntreprise){
+                $manager->persist($typeEntreprise);
+            }
+
+            //Création des stages
+            $nbStages = 15;
+        for($i=1;$i <= $nbStages;$i++){
+            $Stages= new Stage();
+            $Stages->setTitre($faker->regexify('Stage[A-Z],[A-Z]{1,45}'));
+            $Stages->setDescription($faker->regexify('Description du Stage : [A-Z],[A-Z]{1,45}'));
+            $Stages->setEmail($faker->email);
+            // Selectionne une entreprise au hazard pour la lier
+            $Stages -> addFormation($typeFormation);
+            $RelationEntrepriseStage = $faker->numberBetween($min=0,$max=9);
+            //Création stage-->entreprise
+            $stage=setTypeEntreprise($typeEntreprise)
+            $tabEntreprise[$RelationEntrepriseStage]->addStage($stages);
+
+            $manager->persist($Stages);
+            $manager->persist($tabEntreprise[$RelationEntrepriseStage]);
+        }
+            
         //Envoyer les données en BD
         $manager->flush();
 
