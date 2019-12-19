@@ -6,14 +6,34 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
+use App\Entity\Stage;
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
         // Création d'un générateur de donnée avec FAKER
         $faker = \Faker\Factory::create('fr_FR');
+
+         
+        //CREATION DES FORMATIONS ET DES STAGES ASSOCIES 
+    
+        $listeFormations = array(
+        "DUT Informatique" => "DUT INFO" ,
+        "Licence professionnel Multimédia" => "Licence Pro" ,
+        "Diplome Universitaire en Technologies de l'Information et de la Communication" => "DU TIC"
+        );
+
+      foreach ($listeFormations as $nomCourt => $nomLong) {
+        //Création d'une formation
+        $formation = new Formation();
+        // Définition du nom court de la formation
+        $formation->setNomCourt($nomCourt);
+        // Définition du nom (long) de la formation
+        $formation->setNomLong($nomLong);
+        $manager->persist($formation);
+
         // Création de donnée en dure
-        $Formation_DUT_Informatique = new Formation();
+       /* $Formation_DUT_Informatique = new Formation();
         $Formation_DUT_Informatique->setNomLong("Diplome Universitaire et Technologique en Informatique");
         $Formation_DUT_Informatique->setNomCourt("DUT_INFO");
         $manager->persist($Formation_DUT_Informatique);
@@ -29,11 +49,11 @@ class AppFixtures extends Fixture
         $manager->persist($Formation_DU_TIC);
 
          //Création du tableau
-         $tabFormation=array($Formation_DU_TIC,$Formation_Licence_Professionnel_Multimedia,$Formation_DUT_Informatique);
+         //$tabFormation=array($Formation_DU_TIC,$Formation_Licence_Professionnel_Multimedia,$Formation_DUT_Informatique);
         //Persiste de mes données du tabEntreprise
         foreach($tabFormation as $typeFormation){
             $manager->persist($typeFormation);
-        }
+        }*/
 
         /*// Création de donnée avec FAKER
         $nbEntreprises = 15;
@@ -126,26 +146,28 @@ class AppFixtures extends Fixture
                 $manager->persist($typeEntreprise);
             }
 
-            //Création des stages
+            //Création des stages --> Formation
             $nbStages = 15;
         for($i=1;$i <= $nbStages;$i++){
             $Stages= new Stage();
-            $Stages->setTitre($faker->regexify('Stage[A-Z],[A-Z]{1,45}'));
-            $Stages->setDescription($faker->regexify('Description du Stage : [A-Z],[A-Z]{1,45}'));
+            $Stages->setTitre($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Stages->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
             $Stages->setEmail($faker->email);
             // Selectionne une entreprise au hazard pour la lier
-            $Stages -> addFormation($typeFormation);
-            $RelationEntrepriseStage = $faker->numberBetween($min=0,$max=9);
-            //Création stage-->entreprise
-            $stage=setTypeEntreprise($typeEntreprise)
-            $tabEntreprise[$RelationEntrepriseStage]->addStage($stages);
+            $Stages -> addFormation($formation);
 
+            // Sélectionner une entreprise au hasard parmi les 9 créées dans $tabEntreprise
+            $choisirUneEntreprise = $faker->numberBetween($min = 0, $max = 9);
+            // Création relation un Stage --> une Entreprise
+            $Stages -> setNomEntreprise($tabEntreprise[$choisirUneEntreprise]);
+            // Création relation une Entreprise --> des Stages
+            $tabEntreprise[$choisirUneEntreprise] -> addStage($Stages);
+            // Persister les objets modifiés
             $manager->persist($Stages);
-            $manager->persist($tabEntreprise[$RelationEntrepriseStage]);
+            $manager->persist($tabEntreprise[$choisirUneEntreprise]);
         }
-            
-        //Envoyer les données en BD
-        $manager->flush();
-
+    }
+    //Envoyer les données en BD
+    $manager->flush();
     }
 }
