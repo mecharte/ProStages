@@ -1,47 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block menu %}
-<h1> Filtration par Liste par Entreprise </h1>
+<h1> Filtration par Entreprise </h1>
 {% endblock %}
 
 {% block contenu %}
-<div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <h2>
-                    SAFRAN
-                </h2>
-                <p>
-                    STAGE Developpeur web, CREATION D'UN SITE!!<br>
-                    STAGE Création d'une algo de partage <br>
-                    STAGE Mise en place d'un SHAREOINT REJOIGNEZ NOUS!
-                </p>
-                
-            </div>
-            <div class="col-md-4">
-                <h2>
-                    QUIKSILVER
-                </h2>
-                <p>
-                    STAGE Developpeur web, CREATION D'UN SITE!!<br>
-                    STAGE Création d'une algo de partage <br>
-                    STAGE Mise en place d'un SHAREOINT REJOIGNEZ NOUS!
-                </p>
-               
-            </div>
-            <div class="col-md-4">
-                <h2>
-                    ALTANOVEO
-                </h2>
-                <p>
-                    STAGE Developpeur web, CREATION D'UN SITE!!<br>
-                    STAGE Création d'une algo de partage <br>
-                    STAGE Mise en place d'un SHAREOINT REJOIGNEZ NOUS!
-                </p>
-               
-            </div>
-        </div>
-    </div>
+            {% for EntrepriseCourante in controller_entreprise %}
+
+                <div class="col-md-4">
+                    <h2>
+                     {{ EntrepriseCourante.nom }}
+                    </h2>
+                    <p>
+                     {{ EntrepriseCourante.adresse }}
+                    </p>
+
+                    <p>
+                     {{ EntrepriseCourante.activite }}
+                    </p>
+                </div>
+            {% endfor %}
+           
 
 {% endblock %}
 {% block footer %}

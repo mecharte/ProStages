@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block menu %}
+Entreprise
+{% endblock %}
+
+{% block contenu %}
+
+<h1><strong><center>{{ ststagesParEntrepriseage.nomEntreprise.nom }}</center></strong></h1>
+<center style="font-family:Courier New">Entreprise {{ststagesParEntrepriseage.nomEntreprise.nom}}</center>
+</br></br>
+
+<strong>Stages concernés</strong> :
+
+<strong>Entreprise</strong> : {{stagesParEntreprise.nomEntreprise.nom}}
+</br></br>
+
+<strong>Activité de l'entreprise</strong> : {{stagesParEntreprise.nomEntreprise.activite}}
+</br></br>
+
+<strong>Adresse</strong> : {{stagesParEntreprise.nomEntreprise.adresse}}
+</br></br>
+
+<strong>Description</strong> : <p align = "justify">{{stagesParEntreprise.description}}</p>
+
+{% endblock %}

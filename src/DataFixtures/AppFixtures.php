@@ -147,13 +147,13 @@ class AppFixtures extends Fixture
             }
 
             //Création des stages --> Formation
-            $nbStages = 15;
-        for($i=1;$i <= $nbStages;$i++){
+            $nbStagesAGenerer = $faker->numberBetween($min = 0, $max = 10);
+        for($i=1;$i <= $nbStagesAGenerer;$i++){
             $Stages= new Stage();
             $Stages->setTitre($faker->realText($maxNbChars = 200, $indexSize = 2));
             $Stages->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
             $Stages->setEmail($faker->email);
-            // Selectionne une entreprise au hazard pour la lier
+            // Selectionne une formation au hazard pour la lier
             $Stages -> addFormation($formation);
 
             // Sélectionner une entreprise au hasard parmi les 9 créées dans $tabEntreprise

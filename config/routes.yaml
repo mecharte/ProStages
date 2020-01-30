@@ -17,3 +17,7 @@ stages:
 affichagesRessources:
   path: /affichagesRessources/{nb}
   controller: App\Controller\OpenClassDutController::afficherRessourcesPeda
+
+entreprisesParStage:
+  path: /entreprises/{nomEntreprise}
+  controller: App\Controller\OpenClassDutController::index5

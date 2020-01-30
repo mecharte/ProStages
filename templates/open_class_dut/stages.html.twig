@@ -1,56 +1,30 @@
 {% extends 'base.html.twig' %}
+{% block menu %}
+Stage n°{{stage.id}}
+{% endblock %}
 
-        
-        {% block slider %}
-        <h1>Stage numéro {{StageID}}</h1>
-        <p> Cette page affichera le descriptif du stage ayant pour identifiant {{StageID}} </p>
-        {% endblock %}
+{% block contenu %}
 
-        {% block menu %}
-        {% endblock %}
-        
-        {% block contenu %}
-        <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>
-                            Heading
-                        </h2>
-                        <p>
-                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                        </p>
-                        <p>
-                            <a class="btn" href="#">View details »</a>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>
-                            Heading
-                        </h2>
-                        <p>
-                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                        </p>
-                        <p>
-                            <a class="btn" href="#">View details »</a>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>
-                            Heading
-                        </h2>
-                        <p>
-                            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                        </p>
-                        <p>
-                            <a class="btn" href="#">View details »</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        
-        {% endblock %}
-        {% block footer %}
-        {% endblock %}
-        {% block javascripts %}
-        {% endblock %}
+<h1><strong><center>{{ stage.titre }}</center></strong></h1>
+<center style="font-family:Courier New">Stage n°{{stage.id}}</center>
+</br></br>
 
+<strong>Formation concernée</strong> :
+
+{% for formationCourante in stage.formations %}
+{{formationCourante.nomCourt}} ({{formationCourante.nomLong}})
+{% endfor %}
+</br></br>
+
+<strong>Entreprise</strong> : {{stage.nomEntreprise.nom}}
+</br></br>
+
+<strong>Activité de l'entreprise</strong> : {{stage.nomEntreprise.activite}}
+</br></br>
+
+<strong>Adresse</strong> : {{stage.nomEntreprise.adresse}}
+</br></br>
+
+<strong>Description</strong> : <p align = "justify">{{stage.description}}</p>
+
+{% endblock %}
