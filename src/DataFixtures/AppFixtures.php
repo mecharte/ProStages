@@ -150,7 +150,7 @@ class AppFixtures extends Fixture
             $nbStagesAGenerer = $faker->numberBetween($min = 0, $max = 10);
         for($i=1;$i <= $nbStagesAGenerer;$i++){
             $Stages= new Stage();
-            $Stages->setTitre($faker->realText($maxNbChars = 200, $indexSize = 2));
+            $Stages->setTitre("Stage - ".$faker->jobTitle);
             $Stages->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
             $Stages->setEmail($faker->email);
             // Selectionne une formation au hazard pour la lier

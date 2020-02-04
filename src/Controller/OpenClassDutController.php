@@ -16,9 +16,12 @@ class OpenClassDutController extends AbstractController
    # */
     public function index()
     {
-        return $this->render('open_class_dut/index.html.twig', [
-            'controller_name' => 'ControleurOpenClassDut',
-        ]);
+        //Récuperer le Repository Formation
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+        //Récupérer les formations de la BD
+        $stages = $repositoryStage->findAll();
+        //Envoyer les formations récupérées à la vue chargée de les afficher
+        return $this->render('open_class_dut/index.html.twig', ['stages' => $stages]);
     }
 
     // Injection d'indépendances
@@ -29,7 +32,7 @@ class OpenClassDutController extends AbstractController
         //Récupérer les entreprises de la BD
         $entreprises = $repositoryEntreprise->findAll();
         //Envoyer les entreprises récupérées à la vue chargée de les afficher
-        return $this->render('open_class_dut/entreprises.html.twig', ['controller_entreprise' => $entreprises]);
+        return $this->render('open_class_dut/entreprises.html.twig', ['entreprises' => $entreprises]);
     }
 
     public function index3()
@@ -39,7 +42,7 @@ class OpenClassDutController extends AbstractController
         //Récupérer les formations de la BD
         $formations = $repositoryFormation->findAll();
         //Envoyer les formations récupérées à la vue chargée de les afficher
-        return $this->render('open_class_dut/formation.html.twig', ['controller_formations' => $formations]);
+        return $this->render('open_class_dut/formation.html.twig', ['formations' => $formations]);
     }
     
     
@@ -50,7 +53,7 @@ class OpenClassDutController extends AbstractController
         //Récupérer les stages de la BD
         $stages = $repositoryStage->find($id);
         //Envoyer les stages récupérées à la vue chargée de les afficher
-        return $this->render('open_class_dut/stages.html.twig', ['stage' => $stages]);
+        return $this->render('open_class_dut/stages.html.twig', ['stages' => $stages]);
     }
 
     public function index5($nomEntreprise)
@@ -58,15 +61,9 @@ class OpenClassDutController extends AbstractController
         //Récuperer le Repository stage
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
         //Récupérer les stages de la BD
-        $stagesParEntreprise = $repositoryStage->findBy($nomEntreprise);
+        $stagesParEntreprise = $repositoryStage->findStageParEntreprise($nomEntreprise);
         //Envoyer les stages récupérées à la vue chargée de les afficher
         return $this->render('open_class_dut/entreprise_stages.html.twig', ['stageParEntreprise' => $stagesParEntreprise]);
     }
 
-    /*public function afficherRessourcesPeda($nb)
-    {
-        return $this->render('open_class_dut/affichagesRessources.html.twig', [
-            'afficherRessourceNB' => $nb,
-        ]);
-    }*/
 }

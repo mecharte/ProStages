@@ -1,30 +1,34 @@
 {% extends 'base.html.twig' %}
 {% block menu %}
-Stage n°{{stage.id}}
+Stage n°{{stages.id}}
 {% endblock %}
 
 {% block contenu %}
 
-<h1><strong><center>{{ stage.titre }}</center></strong></h1>
-<center style="font-family:Courier New">Stage n°{{stage.id}}</center>
+<h1><strong><center>{{ stages.titre }}</center></strong></h1>
+<center style="font-family:Courier New">Stage n°{{stages.id}}</center>
 </br></br>
 
 <strong>Formation concernée</strong> :
 
-{% for formationCourante in stage.formations %}
-{{formationCourante.nomCourt}} ({{formationCourante.nomLong}})
+{% for stageCourant in stages.formations %}
+<h2>
+<td>
+{{stageCourant.nomCourt}} ({{stageCourant.nomLong}} 
+</td>
+</h2>
 {% endfor %}
 </br></br>
 
-<strong>Entreprise</strong> : {{stage.nomEntreprise.nom}}
+<strong>Entreprise</strong> : {{stages.nomEntreprise.nom}}
 </br></br>
 
-<strong>Activité de l'entreprise</strong> : {{stage.nomEntreprise.activite}}
+<strong>Activité de l'entreprise</strong> : {{stages.nomEntreprise.activite}}
 </br></br>
 
-<strong>Adresse</strong> : {{stage.nomEntreprise.adresse}}
+<strong>Adresse</strong> : {{stages.nomEntreprise.adresse}}
 </br></br>
 
-<strong>Description</strong> : <p align = "justify">{{stage.description}}</p>
+<strong>Description</strong> : <p align = "justify">{{stages.description}}</p>
 
 {% endblock %}

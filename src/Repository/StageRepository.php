@@ -26,11 +26,10 @@ class StageRepository extends ServiceEntityRepository
     public function findStageParEntreprise($nomEntreprise)
     {
         return $this->createQueryBuilder('s')
-        ->join(s.entreprise)
-            ->andWhere('s.entreprise.nom = :val')
-            ->setParameter('val', $nomEntreprise)
-            ->orderBy('s.nom', 'ASC')
-            ->setMaxResults(10)
+        ->join('s.entreprise','e')
+            ->andWhere('e.nom = :nomEntreprise')
+            ->setParameter('nomEntreprise', $nomEntreprise)
+            ->orderBy('e.nom', 'ASC')
             ->getQuery()
             ->getResult()
         ;

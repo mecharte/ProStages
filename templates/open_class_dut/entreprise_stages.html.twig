@@ -5,11 +5,16 @@ Entreprise
 
 {% block contenu %}
 
-<h1><strong><center>{{ ststagesParEntrepriseage.nomEntreprise.nom }}</center></strong></h1>
-<center style="font-family:Courier New">Entreprise {{ststagesParEntrepriseage.nomEntreprise.nom}}</center>
+<h1><strong><center>{{ stagesParEntreprise.nomEntreprise.nom }}</center></strong></h1>
+<center style="font-family:Courier New">Entreprise {{stagesParEntreprise.nomEntreprise.nom}}</center>
 </br></br>
 
 <strong>Stages concernés</strong> :
+
+{% for entrepriseParStageCourant in stageParEntreprise.formations %}
+
+{{entrepriseParStageCourant.nomCourt}} ({{entrepriseParStageCourant.nomLong}})
+{% endfor %}
 
 <strong>Entreprise</strong> : {{stagesParEntreprise.nomEntreprise.nom}}
 </br></br>
