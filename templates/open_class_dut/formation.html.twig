@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block menu %}
-<h1> Filtration par Entreprise </h1>
-{% endblock %}
-
 {% block contenu %}
 
 <table class="table table-striped table-dark">
@@ -15,7 +11,7 @@
   </thead>
   <tbody>
 
-    {% for formationCourante in controller_formations %}
+    {% for formationCourante in formations %}
 
     <tr>
 

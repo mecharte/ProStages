@@ -21,7 +21,9 @@
                             </a>
                         </td>
                         <td>
-                            {{stageCourant.nomEntreprise.getNom}}
+                                <a href="{{path('entreprisesParStage', {nomEntreprise:stageCourant.nomEntreprise.getNom})}}" style="color:white; text-decoration:none;">
+                                        {{stageCourant.nomEntreprise.getNom}}
+                                    </a>    
                         </td>
 
                         <td>

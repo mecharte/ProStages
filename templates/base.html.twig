@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-         <!-- Bootstrap CSS -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/fontello.css')}}">
 
-        <title>{% block title %}ProStage{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block slider %}
+    <title>{% block title %}ProStage{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    {% block slider %}
+    <div class="col-md-12">
         <blockquote class="blockquote text-center">
-            <p class="mb-0"><h1><center><i class="icon-lastfm-1"></i><a href="{{path('proStage')}}" style="color:darkgoldenrod; text-decoration: none">Prostages</a></center></h1></p>
+            <p class="mb-0">
+                <h1>
+                    <center><i class="icon-lastfm-1"></i><a href="{{path('proStage')}}"
+                            style="color:darkgoldenrod; text-decoration: none">Prostages</a></center>
+                </h1>
+            </p>
         </blockquote>
-        {% endblock %}
-        <div class="col-md-3">     
-        <ul class="list-group">
-        {% block menu %}
-              <li class="list-group-item"><h1><center> Filtrer par </center></h1>  </li> 
-            <li class="list-group-item"><a href="{{path('entreprises')}}">Entreprises</a> </li> 
-            <li class="list-group-item"><a href="formation">Formations</a> </li> 
-          </ul>
+    </div>
+    {% endblock %}
+    <br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                    {% block contenu %}
+                    {% endblock %}
+            </div>
+            <div class="col-md-3">
+                <ul class="list-group">
+
+    {% block menu %}
+                    <li class="list-group-item">
+                        <h1>
+                            <center> Filtrer par </center>
+                        </h1>
+                    </li>
+                    <li class="list-group-item"><a href="{{path('entreprises')}}">Entreprises</a> </li>
+                    <li class="list-group-item"><a href="formation">Formations</a> </li>
+                </ul>
+            
+    {% endblock %}
+    </div>
+
         </div>
-        {% endblock %}
-        {% block contenu %}
-        {% endblock %}
-        {% block footer %}
-        <p>Site réalisé par Mathieu Echarte avec les frameworks <a href="https://symfony.com">Symfony</a> et <a href="https://getbootstrap.com">Bootstrap</a></p>
-        {% endblock %}
-        {% block javascripts %}
-        {% endblock %}
-    </body>
+    
+   
+    {% block footer %}
+    <p>Site réalisé par Mathieu Echarte avec les frameworks <a href="https://symfony.com">Symfony</a> et <a
+            href="https://getbootstrap.com">Bootstrap</a></p>
+    {% endblock %}
+</div>
+    {% block javascripts %}
+    {% endblock %}
+</body>
+
 </html>

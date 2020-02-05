@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block menu %}
-<h1> Filtration par Entreprise </h1>
+
 {% endblock %}
 
 {% block contenu %}
     <div class="container-fluid">
         <div class="row">
-            {% for EntrepriseCourante in controller_entreprise %}
+            {% for EntrepriseCourante in entreprises %}
 
                 <div class="col-md-4">
                     <h2>
-                    <td><a href = "{{ path('entreprises')}}" style="color:black; text-decoration:none;">
+                    <td><a href = "{{ path('entreprisesParStage',{nomEntreprise:EntrepriseCourante.nom})}}"style="color:black; text-decoration:none;">
                         {{ EntrepriseCourante.nom }} </a></td>
                     </h2>
                     <p>
