@@ -66,4 +66,14 @@ class OpenClassDutController extends AbstractController
         return $this->render('open_class_dut/entreprise_stages.html.twig', ['stagesParEntreprise' => $stagesParEntreprise]);
     }
 
+    public function index6($formations)
+    {
+        //Récuperer le Repository stage
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+        //Récupérer les stages de la BD
+        $stagesParFormation = $repositoryStage->findStageParEntreprise($formations);
+        //Envoyer les stages récupérées à la vue chargée de les afficher
+        return $this->render('open_class_dut/formation_stages.html.twig', ['stagesParFormation' => $stagesParFormation]);
+    }
+
 }

@@ -14,10 +14,10 @@ stages:
   path: /stages/{id}
   controller: App\Controller\OpenClassDutController::index4
 
-affichagesRessources:
-  path: /affichagesRessources/{nb}
-  controller: App\Controller\OpenClassDutController::afficherRessourcesPeda
-
 entreprisesParStage:
   path: /entreprises/{nomEntreprise}
   controller: App\Controller\OpenClassDutController::index5
+
+formationParStage:
+  path: /formation/{formations}
+  controller: App\Controller\OpenClassDutController::index6
