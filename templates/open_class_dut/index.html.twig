@@ -28,9 +28,9 @@
 
                         <td>
                             {% for formationCourante in stageCourant.formations %}
-                            {{formationCourante.nomCourt}}
-
-
+                            <a href="{{path('formationParStage', {formations:formationCourante.nomCourt})}}" style="color:white; text-decoration:none;">
+                                {{formationCourante.nomCourt}}
+                            </a>
                             {% endfor %}
                         </td>
                     </tr>

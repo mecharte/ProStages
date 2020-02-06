@@ -19,7 +19,7 @@ class OpenClassDutController extends AbstractController
         //Récuperer le Repository Formation
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
         //Récupérer les formations de la BD
-        $stages = $repositoryStage->findAll();
+        $stages = $repositoryStage->getStageEntrepriseEtFormation();
         //Envoyer les formations récupérées à la vue chargée de les afficher
         return $this->render('open_class_dut/index.html.twig', ['stages' => $stages]);
     }
@@ -71,7 +71,7 @@ class OpenClassDutController extends AbstractController
         //Récuperer le Repository stage
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
         //Récupérer les stages de la BD
-        $stagesParFormation = $repositoryStage->findStageParEntreprise($formations);
+        $stagesParFormation = $repositoryStage->findStageParFormation($formations);
         //Envoyer les stages récupérées à la vue chargée de les afficher
         return $this->render('open_class_dut/formation_stages.html.twig', ['stagesParFormation' => $stagesParFormation]);
     }
