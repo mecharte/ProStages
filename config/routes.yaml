@@ -21,3 +21,7 @@ entreprisesParStage:
 formationParStage:
   path: /formation/{formations}
   controller: App\Controller\OpenClassDutController::index6
+
+formulairePourEntreprise:
+  path: /formulaire
+  controller: App\Controller\OpenClassDutController::index7

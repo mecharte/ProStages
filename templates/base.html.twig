@@ -28,13 +28,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
-                    {% block contenu %}
-                    {% endblock %}
+                {% block contenu %}
+                {% endblock %}
             </div>
+
+
+            {% block menu %}
             <div class="col-md-3">
                 <ul class="list-group">
-
-    {% block menu %}
                     <li class="list-group-item">
                         <h1>
                             <center> Filtrer par </center>
@@ -43,18 +44,21 @@
                     <li class="list-group-item"><a href="{{path('entreprises')}}">Entreprises</a> </li>
                     <li class="list-group-item"><a href="formation">Formations</a> </li>
                 </ul>
-            
-    {% endblock %}
-    </div>
-
+            </div>
         </div>
-    
-   
-    {% block footer %}
-    <p>Site réalisé par Mathieu Echarte avec les frameworks <a href="https://symfony.com">Symfony</a> et <a
-            href="https://getbootstrap.com">Bootstrap</a></p>
-    {% endblock %}
-</div>
+                {% endblock %}
+            
+
+        
+
+
+        {% block footer %}
+        <br>
+        <br>
+        <h6 align="right">Site réalisé par Mathieu Echarte avec les frameworks <a href="https://symfony.com">Symfony</a>
+            et <a href="https://getbootstrap.com">Bootstrap</a></h6>
+        {% endblock %}
+    </div>
     {% block javascripts %}
     {% endblock %}
 </body>

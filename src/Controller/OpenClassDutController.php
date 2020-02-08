@@ -24,6 +24,27 @@ class OpenClassDutController extends AbstractController
         return $this->render('open_class_dut/index.html.twig', ['stages' => $stages]);
     }
 
+    public function index7()
+    {
+        // Créer une entreprise vierge qui sera remplie par le formulaire
+        $entreprise= new Entreprise();
+        //Création d'un formulaire permettant de saisir une entreprise
+        $formulaireEntreprise = $this->createFormBuilder()
+        ->add('id')
+        ->add('nom')
+        ->add('activite')
+        ->add('adresse')
+        ->add('siteWeb')
+        ->add('stages')
+        ->getForm();
+
+        // Création de la représentation graphique du formulaire
+        $vueFormulaire=$formulaireEntreprise->createView();
+
+        //Afficher le formulaire pour créer une entreprise
+        return $this->render('open_class_dut/formulairePourEntreprise.html.twig',['vueFormulaire' => $vueFormulaire]);
+    }
+
     // Injection d'indépendances
     // On a besoin d'une varaibles repositoryEntreprises pour que ca fonctionne 
     //on demande donc que le système le fasse à notre place grace à la variable qui est dans la fonction
@@ -75,5 +96,6 @@ class OpenClassDutController extends AbstractController
         //Envoyer les stages récupérées à la vue chargée de les afficher
         return $this->render('open_class_dut/formation_stages.html.twig', ['stagesParFormation' => $stagesParFormation]);
     }
+
 
 }

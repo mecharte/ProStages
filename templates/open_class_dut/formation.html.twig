@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block contenu %}
 
 <table class="table table-striped table-dark">
@@ -15,19 +16,19 @@
 
     <tr>
 
-      <td><a href = "{{ path('formation')}}" style="color:white; text-decoration:none;">
-        {{ formationCourante.nomCourt }}
-      </a></td>
+      <td><a href="{{ path('formation')}}" style="color:white; text-decoration:none;">
+          {{ formationCourante.nomCourt }}
+        </a></td>
 
-      <td><a href = "{{ path('formation')}}" style="color:white; text-decoration:none;">
-        {{ formationCourante.nomLong }}
-      </a></td>
+      <td><a href="{{ path('formation')}}" style="color:white; text-decoration:none;">
+          {{ formationCourante.nomLong }}
+        </a></td>
 
 
     </tr>
 
-  {% endfor %}
-</tbody>
+    {% endfor %}
+  </tbody>
 </table>
 
 {% endblock %}
