@@ -1,7 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-{{form(vueFormulaire)}}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+                <center>
+                        <h2>Formulaire pour créer une entreprise</h2>
+                    </center>
+			<div class="jumbotron">
+                    {{form_start(vueFormulaireEntreprise)}}
+
+                    <label> Id de l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.id)}}
+
+                    <label> Nom de l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.nom)}}
+
+                    <label> Activité de l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.activite)}}
+
+                    <label> Adresse de l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.adresse)}}
+
+                    <label> Site Web de l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.siteWeb)}}
+                    
+                    <label> Stage(s) lié(s) à l'entreprise</label>
+                    {{form_widget(vueFormulaireEntreprise.stages)}}
+                    {{form_end(vueFormulaireEntreprise)}}
+			</div>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block menu %}

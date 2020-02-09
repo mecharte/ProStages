@@ -8,6 +8,7 @@ use App\Entity\Formation;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Repository\EntrepriseRepository;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class OpenClassDutController extends AbstractController
 {
@@ -32,7 +33,7 @@ class OpenClassDutController extends AbstractController
         $formulaireEntreprise = $this->createFormBuilder()
         ->add('id')
         ->add('nom')
-        ->add('activite')
+        ->add('activite',TextareaType::class)
         ->add('adresse')
         ->add('siteWeb')
         ->add('stages')
@@ -42,7 +43,7 @@ class OpenClassDutController extends AbstractController
         $vueFormulaire=$formulaireEntreprise->createView();
 
         //Afficher le formulaire pour créer une entreprise
-        return $this->render('open_class_dut/formulairePourEntreprise.html.twig',['vueFormulaire' => $vueFormulaire]);
+        return $this->render('open_class_dut/formulairePourEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
     }
 
     // Injection d'indépendances
