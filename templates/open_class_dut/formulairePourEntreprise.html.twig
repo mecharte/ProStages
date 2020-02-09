@@ -2,35 +2,41 @@
 
 {% block contenu %}
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Formulaire pour créer une entreprise</h2>
+            </center>
+            <div class="jumbotron">
+                {{form_start(vueFormulaireEntreprise)}}
+
+                <label> Id de l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.id, {'attr':{'placeholder':"47"}})}}
+
+                <label> Nom de l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Safran ..."}})}}
+
+                <label> Activité de l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Createur de pain"}})}}
+
+                <label> Adresse de l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges"}})}}
+
+                <label> Site Web de l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.siteWeb, {'attr':{'placeholder':"Safran@goigo.cjae.com"}})}}
+
+                <label> Stage(s) lié(s) à l'entreprise</label>
+                {{form_widget(vueFormulaireEntreprise.stages, {'attr':{'placeholder':"Boulangerie"}})}}
+                <br>
+                <br>
                 <center>
-                        <h2>Formulaire pour créer une entreprise</h2>
-                    </center>
-			<div class="jumbotron">
-                    {{form_start(vueFormulaireEntreprise)}}
+                    <button type="submit" class="btn btn-info">Enregistrer</button>
+                </center>
 
-                    <label> Id de l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.id)}}
-
-                    <label> Nom de l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.nom)}}
-
-                    <label> Activité de l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.activite)}}
-
-                    <label> Adresse de l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.adresse)}}
-
-                    <label> Site Web de l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.siteWeb)}}
-                    
-                    <label> Stage(s) lié(s) à l'entreprise</label>
-                    {{form_widget(vueFormulaireEntreprise.stages)}}
-                    {{form_end(vueFormulaireEntreprise)}}
-			</div>
-		</div>
-	</div>
+                {{form_end(vueFormulaireEntreprise)}}
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

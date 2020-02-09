@@ -8,7 +8,8 @@ use App\Entity\Formation;
 use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Repository\EntrepriseRepository;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType; // pour rajouter un type de formulaire il faut rajouter le USE
+
 
 class OpenClassDutController extends AbstractController
 {
@@ -33,7 +34,7 @@ class OpenClassDutController extends AbstractController
         $formulaireEntreprise = $this->createFormBuilder()
         ->add('id')
         ->add('nom')
-        ->add('activite',TextareaType::class)
+        ->add('activite')
         ->add('adresse')
         ->add('siteWeb')
         ->add('stages')
