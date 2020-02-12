@@ -62,6 +62,7 @@ class StageRepository extends ServiceEntityRepository
 
         // Retourner les résultats
         return $requete->execute();
+
     }
 
 

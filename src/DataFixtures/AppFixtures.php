@@ -33,11 +33,7 @@ class AppFixtures extends Fixture
         $manager->persist($formation);
 
         // Création de donnée en dure
-       /* $Formation_DUT_Informatique = new Formation();
-        $Formation_DUT_Informatique->setNomLong("Diplome Universitaire et Technologique en Informatique");
-        $Formation_DUT_Informatique->setNomCourt("DUT_INFO");
-        $manager->persist($Formation_DUT_Informatique);
-
+       /* 
         $Formation_Licence_Professionnel_Multimedia = new Formation();
         $Formation_Licence_Professionnel_Multimedia->setNomLong("Licence professionnel multimédia");
         $Formation_Licence_Professionnel_Multimedia->setNomCourt("LP Multimédia");

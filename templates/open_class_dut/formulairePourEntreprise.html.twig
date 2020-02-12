@@ -10,23 +10,18 @@
             <div class="jumbotron">
                 {{form_start(vueFormulaireEntreprise)}}
 
-                <label> Id de l'entreprise</label>
-                {{form_widget(vueFormulaireEntreprise.id, {'attr':{'placeholder':"47"}})}}
-
                 <label> Nom de l'entreprise</label>
-                {{form_widget(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Safran ..."}})}}
+                {{form_widget(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Safran ...",'required':'true'}})}}
 
                 <label> Activité de l'entreprise</label>
-                {{form_widget(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Createur de pain"}})}}
+                {{form_widget(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Createur de pain",'required':'true'}})}}
 
                 <label> Adresse de l'entreprise</label>
-                {{form_widget(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges"}})}}
+                {{form_widget(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges",'required':'true'}})}}
 
                 <label> Site Web de l'entreprise</label>
                 {{form_widget(vueFormulaireEntreprise.siteWeb, {'attr':{'placeholder':"Safran@goigo.cjae.com"}})}}
 
-                <label> Stage(s) lié(s) à l'entreprise</label>
-                {{form_widget(vueFormulaireEntreprise.stages, {'attr':{'placeholder':"Boulangerie"}})}}
                 <br>
                 <br>
                 <center>

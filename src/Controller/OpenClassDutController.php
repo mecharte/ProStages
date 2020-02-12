@@ -9,6 +9,8 @@ use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Repository\EntrepriseRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType; // pour rajouter un type de formulaire il faut rajouter le USE
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 class OpenClassDutController extends AbstractController
@@ -26,19 +28,33 @@ class OpenClassDutController extends AbstractController
         return $this->render('open_class_dut/index.html.twig', ['stages' => $stages]);
     }
 
-    public function index7()
+    public function index7(Request $request, ObjectManager $manager)
     {
         // Créer une entreprise vierge qui sera remplie par le formulaire
-        $entreprise= new Entreprise();
+        $newEntreprise= new Entreprise();
         //Création d'un formulaire permettant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder()
-        ->add('id')
+        $formulaireEntreprise = $this->createFormBuilder($newEntreprise)
         ->add('nom')
         ->add('activite')
         ->add('adresse')
         ->add('siteWeb')
-        ->add('stages')
         ->getForm();
+
+        /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
+        contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
+        récupère les valeurs de ces varialbes et les affecte à l'objet $ressource*/
+        $formulaireEntreprise->handleRequest($request);
+
+        if ($formulaireEntreprise->isSubmitted()){
+
+            //Enregistrer l'entreprise en base de données
+            $manager->persist($newEntreprise);
+            $manager->flush();
+
+            //Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('proStage');
+
+        }
 
         // Création de la représentation graphique du formulaire
         $vueFormulaire=$formulaireEntreprise->createView();
