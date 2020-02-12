@@ -16,9 +16,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 class OpenClassDutController extends AbstractController
 {
    #/**
-   # * @Route("/accueil", name="open_class_dut")
+   # * @Route("/", name="open_class_dut")
    # */
-    public function index()
+    public function accueil()
     {
         //Récuperer le Repository Formation
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
@@ -28,10 +28,10 @@ class OpenClassDutController extends AbstractController
         return $this->render('open_class_dut/index.html.twig', ['stages' => $stages]);
     }
 
-    public function index7(Request $request, ObjectManager $manager)
+    public function ajouterEntreprise(Request $request, ObjectManager $manager)
     {
-        // Créer une entreprise vierge qui sera remplie par le formulaire
-        $newEntreprise= new Entreprise();
+        //Création d'une entreprise vierge qui sera remplie par le formulaire
+        $newEntreprise = new Entreprise();
         //Création d'un formulaire permettant de saisir une entreprise
         $formulaireEntreprise = $this->createFormBuilder($newEntreprise)
         ->add('nom')
@@ -60,7 +60,40 @@ class OpenClassDutController extends AbstractController
         $vueFormulaire=$formulaireEntreprise->createView();
 
         //Afficher le formulaire pour créer une entreprise
-        return $this->render('open_class_dut/formulairePourEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
+        return $this->render('open_class_dut/ajoutModifEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
+    }
+
+    public function modifierEntreprise(Request $request, ObjectManager $manager,Entreprise $entreprise)
+    {
+        //Création d'un formulaire permettant de saisir une entreprise
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+        ->add('nom')
+        ->add('activite')
+        ->add('adresse')
+        ->add('siteWeb')
+        ->getForm();
+
+        /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
+        contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
+        récupère les valeurs de ces varialbes et les affecte à l'objet $ressource*/
+       $formulaireEntreprise->handleRequest($request);
+
+        if ($formulaireEntreprise->isSubmitted()){
+
+            //Enregistrer l'entreprise en base de données
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            //Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('proStage');
+
+        }
+
+        // Création de la représentation graphique du formulaire
+        $vueFormulaire=$formulaireEntreprise->createView();
+
+        //Afficher le formulaire pour créer une entreprise
+        return $this->render('open_class_dut/ajoutModifEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
     }
 
     // Injection d'indépendances

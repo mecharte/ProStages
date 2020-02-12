@@ -1,6 +1,6 @@
 proStage:
   path: /
-  controller: App\Controller\OpenClassDutController::index
+  controller: App\Controller\OpenClassDutController::accueil
 
 entreprises:
   path: /entreprises
@@ -24,4 +24,8 @@ formationParStage:
 
 formulairePourEntreprise:
   path: /formulaire
-  controller: App\Controller\OpenClassDutController::index7
+  controller: App\Controller\OpenClassDutController::ajouterEntreprise
+
+modifierEntreprise:
+  path: /entreprises/modifier/{id}
+  controller: App\Controller\OpenClassDutController::modifierEntreprise
