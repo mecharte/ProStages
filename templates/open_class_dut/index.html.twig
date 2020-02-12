@@ -6,6 +6,7 @@
                         <th scope="col">Stage</th>
                         <th scope="col">Entreprise</th>
                         <th scope="col">Formation</th>
+                        <th scope="col">Modifier Entreprise</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,12 @@
                             </a>
                             {% endfor %}
                         </td>
+                        <td>
+                                </a> 
+                                <a href="{{path('modifierEntreprise', {id:stageCourant.nomEntreprise.getId})}}" style="color:white; text-decoration:none;">
+                                   <center><i class="icon-edit"></i></center>
+                                </a>    
+                    </td>
                     </tr>
                     {% endfor %}
                 </tbody>
