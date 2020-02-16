@@ -45,7 +45,7 @@ class OpenClassDutController extends AbstractController
         récupère les valeurs de ces varialbes et les affecte à l'objet $ressource*/
         $formulaireEntreprise->handleRequest($request);
 
-        if ($formulaireEntreprise->isSubmitted()){
+        if ($formulaireEntreprise->isSubmitted()&& $formulaireEntreprise->isValid()){
 
             //Enregistrer l'entreprise en base de données
             $manager->persist($newEntreprise);

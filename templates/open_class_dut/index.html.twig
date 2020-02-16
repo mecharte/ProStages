@@ -5,6 +5,7 @@
                     <tr>
                         <th scope="col">Stage</th>
                         <th scope="col">Entreprise</th>
+                        <th scope="col">Site Web</th>
                         <th scope="col">Formation</th>
                         <th scope="col">Modifier Entreprise</th>
                     </tr>
@@ -22,6 +23,9 @@
                                 <a href="{{path('entreprisesParStage', {nomEntreprise:stageCourant.nomEntreprise.getNom})}}" style="color:white; text-decoration:none;">
                                         {{stageCourant.nomEntreprise.getNom}}
                                     </a>    
+                        </td>
+                        <td>
+                            {{stageCourant.nomEntreprise.getSiteWeb}}
                         </td>
 
                         <td>
