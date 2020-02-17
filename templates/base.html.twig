@@ -18,9 +18,12 @@
             <p class="mb-0">
                 <h1>
                     <center><i class="icon-lastfm-1"></i><a href="{{path('proStage')}}"
-                            style="color:darkgoldenrod; text-decoration: none">Prostages</a></center>
+                            style="color:darkgoldenrod; text-decoration: none">Prostages</a>
+                    </center>
                 </h1>
             </p>
+            <h3>
+            </h3>
         </blockquote>
     </div>
     {% endblock %}
@@ -44,6 +47,9 @@
                     <li class="list-group-item"><a href="{{path('entreprises')}}">Entreprises</a> </li>
                     <li class="list-group-item"><a href="formation">Formations</a> </li>
                 </ul>
+                <br>
+                <br>
+                <a href="{{path('formulairePourEntreprise')}}">Rajouter une entreprise</a>
             </div>
         </div>
                 {% endblock %}
