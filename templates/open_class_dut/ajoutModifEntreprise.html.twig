@@ -9,14 +9,22 @@
             </center>
             <div class="jumbotron">
                 {{form_start(vueFormulaireEntreprise,{'attr':{'novalidate':'novalidate'}})}}
-               
-                {{form_row(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Safran ...",'required':'true'}})}}
-               
-                {{form_row(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Createur de pain",'required':'true'}})}}
-            
-                {{form_row(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges",'required':'true'}})}}
-                
-                {{form_row(vueFormulaireEntreprise.siteWeb, {'attr':{'placeholder':"Safran@goigo.cjae.com"}})}}
+                <br>
+               <label> Nom de l'entreprise </label>
+               {{form_errors(vueFormulaireEntreprise.nom)}}
+                {{form_widget(vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Safran ...",'required':'true'}})}}
+                <br>
+                <label> Activité principale </label>
+                {{form_errors(vueFormulaireEntreprise.activite)}}
+                {{form_widget(vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Createur de pain",'required':'true'}})}}
+                <br>
+                <label> Adresse </label>
+                {{form_errors(vueFormulaireEntreprise.adresse)}}
+                {{form_widget(vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges",'required':'true'}})}}
+                <br>
+                <label> site web</label>
+                {{form_errors(vueFormulaireEntreprise.siteWeb)}}
+                {{form_widget(vueFormulaireEntreprise.siteWeb, {'attr':{'placeholder':"Safran@goigo.cjae.com"}})}}
 
                 <br>
                 <br>

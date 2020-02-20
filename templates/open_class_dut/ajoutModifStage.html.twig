@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block contenu %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Formulaire pour créer un stage</h2>
+            </center>
+            <div class="jumbotron">
+                {{form_start(vueFormulaireStage)}}
+               
+                {{form_row(vueFormulaireStage.titre, {'attr':{'placeholder':"Création d'un site web multiplateforme...",'required':'true'}})}}
+               
+                {{form_row(vueFormulaireStage.description, {'attr':{'placeholder':"Créer un site web qui se base sur les languages JS, PHP, C++ ...",'required':'true'}})}}
+            
+                {{form_row(vueFormulaireStage.email, {'attr':{'placeholder':"marco@gmail.com ...",'required':'true'}})}}
+
+                <label> <b> Entreprise </b>  </label> <br>
+
+                <label> Nom de l'entreprise </label>
+               {{form_errors(vueFormulaireStage.nomEntreprise.nom)}}
+                {{form_widget(vueFormulaireStage.nomEntreprise.nom, {'attr':{'placeholder':"Safran ...",'required':'true'}})}}
+                <br>
+                <label> Activité principale </label>
+                {{form_errors(vueFormulaireStage.nomEntreprise.activite)}}
+                {{form_widget(vueFormulaireStage.nomEntreprise.activite, {'attr':{'placeholder':"Createur de pain",'required':'true'}})}}
+                <br>
+                <label> Adresse </label>
+                {{form_errors(vueFormulaireStage.nomEntreprise.adresse)}}
+                {{form_widget(vueFormulaireStage.nomEntreprise.adresse, {'attr':{'placeholder':"Rue des sierges",'required':'true'}})}}
+                <br>
+                <label> site web</label>
+                {{form_errors(vueFormulaireStage.nomEntreprise.siteWeb)}}
+                {{form_widget(vueFormulaireStage.nomEntreprise.siteWeb, {'attr':{'placeholder':"Safran@goigo.cjae.com"}})}}
+                <br>
+                {{form_row(vueFormulaireStage.formations)}}
+                <br>
+                <br>
+                <center>
+                    <button type="submit" class="btn btn-info">Enregistrer</button>
+                </center>
+
+                {{form_end(vueFormulaireStage)}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

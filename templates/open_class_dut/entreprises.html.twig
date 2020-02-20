@@ -9,6 +9,7 @@
             <th scope="col">adresse</th>
             <th scope="col">activite</th>
             <th scope="col">site Web</th>
+            <th scope="col">modifier</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,13 @@
             <td>{{ EntrepriseCourante.adresse }}</td>
             <td>{{ EntrepriseCourante.activite }}</td>
             <td>{{ EntrepriseCourante.siteWeb }}</td>
+            <td>
+                </a>
+                <a href="{{path('modifierEntreprise', {id:EntrepriseCourante.getId})}}"
+                    style="color:white; text-decoration:none;">
+                    <center><i class="icon-edit"></i></center>
+                </a>
+            </td>
           </tr>
       
           {% endfor %}

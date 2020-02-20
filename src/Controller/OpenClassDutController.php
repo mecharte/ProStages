@@ -11,6 +11,8 @@ use App\Repository\EntrepriseRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType; // pour rajouter un type de formulaire il faut rajouter le USE
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Form\EntrepriseType;
+use App\Form\StageType;
 
 
 class OpenClassDutController extends AbstractController
@@ -33,12 +35,7 @@ class OpenClassDutController extends AbstractController
         //Création d'une entreprise vierge qui sera remplie par le formulaire
         $newEntreprise = new Entreprise();
         //Création d'un formulaire permettant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder($newEntreprise)
-        ->add('nom')
-        ->add('activite')
-        ->add('adresse')
-        ->add('siteWeb')
-        ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class,$newEntreprise);
 
         /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
         contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
@@ -63,15 +60,41 @@ class OpenClassDutController extends AbstractController
         return $this->render('open_class_dut/ajoutModifEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
     }
 
+    public function ajouterStage(Request $request, ObjectManager $manager)
+    {
+        //Création d'une entreprise vierge qui sera remplie par le formulaire
+        $newStage = new Stage();
+        //Création d'un formulaire permettant de saisir un stage
+        $formulaireStage = $this->createForm(StageType::class,$newStage);
+
+        /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
+        contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
+        récupère les valeurs de ces varialbes et les affecte à l'objet $ressource*/
+        $formulaireStage->handleRequest($request);
+
+        if ($formulaireStage->isSubmitted()&& $formulaireStage->isValid()){
+
+            //Enregistrer l'entreprise en base de données
+            $manager->persist($newStage);
+            $manager->flush();
+
+            //Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('proStage');
+
+        }
+
+        // Création de la représentation graphique du formulaire
+        $vueFormulaire=$formulaireStage->createView();
+
+        //Afficher le formulaire pour créer une entreprise
+        return $this->render('open_class_dut/ajoutModifStage.html.twig',['vueFormulaireStage' => $vueFormulaire]);
+    }
+
     public function modifierEntreprise(Request $request, ObjectManager $manager,Entreprise $entreprise)
     {
         //Création d'un formulaire permettant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activite')
-        ->add('adresse')
-        ->add('siteWeb')
-        ->getForm();
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class,$entreprise);
+        
 
         /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
         contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
@@ -94,6 +117,35 @@ class OpenClassDutController extends AbstractController
 
         //Afficher le formulaire pour créer une entreprise
         return $this->render('open_class_dut/ajoutModifEntreprise.html.twig',['vueFormulaireEntreprise' => $vueFormulaire]);
+    }
+
+    public function modifierStage(Request $request, ObjectManager $manager,Stage $stages)
+    {
+        //Création d'un formulaire permettant de saisir un stages
+        $formulaireStage = $this->createForm(StageType::class,$stages);
+        
+
+        /* On demande au formulaire d'analyser la dernière requete http. Si le tableau POST contenu dans cette requete
+        contient des varaibles id,nom activite,adresse,siteWeb,stages alors la méthode handleRequest() 
+        récupère les valeurs de ces varialbes et les affecte à l'objet $stages*/
+       $formulaireStage->handleRequest($request);
+
+        if ($formulaireStage->isSubmitted()){
+
+            //Enregistrer le stages en base de données
+            $manager->persist($stages);
+            $manager->flush();
+
+            //Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('proStage');
+
+        }
+
+        // Création de la représentation graphique du formulaire
+        $vueFormulaire=$formulaireStage->createView();
+
+        //Afficher le formulaire pour créer un stages
+        return $this->render('open_class_dut/ajoutModifStage.html.twig',['vueFormulaireStage' => $vueFormulaire]);
     }
 
     // Injection d'indépendances

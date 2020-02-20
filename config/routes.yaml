@@ -11,11 +11,11 @@ formation:
   controller: App\Controller\OpenClassDutController::index3
 
 stages:
-  path: /stages/{id}
+  path: /stages/show/{id}
   controller: App\Controller\OpenClassDutController::index4
 
 entreprisesParStage:
-  path: /entreprises/{nomEntreprise}
+  path: /entreprises/show/{nomEntreprise}
   controller: App\Controller\OpenClassDutController::index5
 
 formationParStage:
@@ -29,3 +29,11 @@ formulairePourEntreprise:
 modifierEntreprise:
   path: /entreprises/modifier/{id}
   controller: App\Controller\OpenClassDutController::modifierEntreprise
+
+ajouterUnStage:
+  path: /stages/new
+  controller: App\Controller\OpenClassDutController::ajouterStage
+
+modifierUnStage:
+  path: /stages/modifier/{id}
+  controller: App\Controller\OpenClassDutController::modifierStage
