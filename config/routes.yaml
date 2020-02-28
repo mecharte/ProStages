@@ -23,7 +23,7 @@ formationParStage:
   controller: App\Controller\OpenClassDutController::index6
 
 formulairePourEntreprise:
-  path: /formulaire
+  path: /entreprises/new
   controller: App\Controller\OpenClassDutController::ajouterEntreprise
 
 modifierEntreprise:

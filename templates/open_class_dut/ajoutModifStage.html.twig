@@ -9,7 +9,9 @@
             </center>
             <div class="jumbotron">
                 {{form_start(vueFormulaireStage)}}
-               
+
+                <label> <b> Stage </b>  </label> <br>
+
                 {{form_row(vueFormulaireStage.titre, {'attr':{'placeholder':"Création d'un site web multiplateforme...",'required':'true'}})}}
                
                 {{form_row(vueFormulaireStage.description, {'attr':{'placeholder':"Créer un site web qui se base sur les languages JS, PHP, C++ ...",'required':'true'}})}}
