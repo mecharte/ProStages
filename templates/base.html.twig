@@ -60,8 +60,12 @@
                 </ul>
                 <br>
                 <br>
-                <a href="{{path('formulairePourEntreprise')}}">Rajouter une entreprise</a> <br> <br>
+                {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{path('formulairePourEntreprise')}}">Rajouter une entreprise</a> <br> <br> 
+                {% endif %}
+                {% if is_granted('ROLE_USER') %}
                 <a href="{{path('ajouterUnStage')}}">Rajouter un stage</a>
+                {% endif %}
                 
             </div>
         </div>
