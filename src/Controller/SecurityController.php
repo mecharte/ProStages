@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\User;
 use App\Form\UserType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
@@ -32,7 +33,7 @@ class SecurityController extends AbstractController
     
     }
 
-    public function inscription(Request $request, ObjectManager $manager)
+    public function inscription(Request $request, ObjectManager $manager,UserPasswordEncoderInterface $encoder)
     {
         //Création d'un utilisateur vide
         $utilisateur = new User();
@@ -47,12 +48,17 @@ class SecurityController extends AbstractController
 
         if ($formulaireUtilisateur->isSubmitted()&& $formulaireUtilisateur->isValid()){
 
-            //Enregistrer l'entreprise en base de données
-            //$manager->persist($newEntreprise);
-            //$manager->flush();
+            //Attribuer un role a l'utilisateur
+            $utilisateur->setRoles(['ROLE_USER']); // non obligé car fonction get role prend par defaut get-user
+            //Encoder le mot de passe d'utilisateur
+            $encodagePassword = $encoder->encodePassword($utilisateur, $utilisateur->getPassword());
+            $utilisateur->setPassword($encodagePassword);
 
-            //Rediriger l'utilisateur vers la page d'accueil
-            return $this->redirectToRoute('proStage');
+            //Enregistrer l'utilisateur en base de données
+            $manager->persist($utilisateur);
+            $manager->flush();
+            //Rediriger l'utilisateur vers la page de login
+            return $this->redirectToRoute('app_login');
 
         }
 
