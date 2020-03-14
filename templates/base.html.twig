@@ -16,6 +16,7 @@
                 <h1>
                     <center><i class="icon-lastfm-1"></i><a href="{{path('proStage')}}"
                             style="color:darkgoldenrod; text-decoration: none">Prostages</a>
+                            <hr>
                     </center>
                 </h1>
             </p>
@@ -42,7 +43,12 @@
                     <a href="{{path('app_logout')}}">Déconnexion</a>
                     {% else %}
                     <i class="icon-user"></i>
-                    <a href="{{path('app_login')}}">Connexion</a>
+                    <a href="{{path('app_login')}}">Connexion</a> 
+                    <br>
+                    <i class="icon-pencil"></i> 
+                    <a href="{{path('app_inscription')}}">Inscription</a>
+                    
+
                 {% endif %}
                 
                 
