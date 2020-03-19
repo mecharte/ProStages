@@ -22,7 +22,7 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     * @Assert\length(
+     * @Assert\Length(
      *      min = 4,
      *      max = 255,
      *      minMessage= "Le nom doit contenir au moins 4 caractères",

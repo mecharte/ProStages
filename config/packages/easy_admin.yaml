@@ -1,0 +1,9 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Formation
+        - App\Entity\Entreprise
+        - App\Entity\Stage
+framework:
+    validation: { enable_annotations: true }
+
