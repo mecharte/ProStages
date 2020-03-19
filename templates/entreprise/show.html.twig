@@ -31,7 +31,7 @@
     <a href="{{ path('entreprise_index') }}">retour à la liste des entreprises</a>
     <br>
 
-    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">editer</a>
+    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">style="color:black; text-decoration:none;">editer<i class="icon-edit"></i></a>
 
     {{ include('entreprise/_delete_form.html.twig') }}
 {% endblock %}

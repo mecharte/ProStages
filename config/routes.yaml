@@ -6,8 +6,8 @@ entreprises:
   path: /entreprises
   controller: App\Controller\OpenClassDutController::index2
 
-formation:
-  path: /formation
+formations:
+  path: /formations
   controller: App\Controller\OpenClassDutController::index3
 
 stages:
@@ -19,7 +19,7 @@ entreprisesParStage:
   controller: App\Controller\OpenClassDutController::index5
 
 formationParStage:
-  path: /formation/{formations}
+  path: /formations/{formations}
   controller: App\Controller\OpenClassDutController::index6
 
 formulairePourEntreprise:
@@ -49,3 +49,63 @@ app_logout:
 app_inscription:
   path: /inscription
   controller: App\Controller\SecurityController::inscription
+
+entreprise_index:
+  path: /entreprise/
+  controller: App\Controller\EntrepriseController::index
+
+entreprise_new:
+  path: /entreprise/new
+  controller: App\Controller\EntrepriseController::new
+
+entreprise_show:
+  path: /entreprise/{id}
+  controller: App\Controller\EntrepriseController::show
+
+entreprise_edit:
+  path: /entreprise/{id}/edit
+  controller: App\Controller\EntrepriseController::edit
+
+entreprise_delete:
+  path: /entreprise/{id}/
+  controller: App\Controller\EntrepriseController::delete
+
+formation_index:
+  path: /formation/
+  controller: App\Controller\FormationController::index
+
+formation_new:
+  path: /formation/new
+  controller: App\Controller\FormationController::new
+
+formation_show:
+  path: /formation/{id}
+  controller: App\Controller\FormationController::show
+
+formation_edit:
+  path: /formation/{id}/edit
+  controller: App\Controller\FormationController::edit
+
+formation_delete:
+  path: /formation/{id}/
+  controller: App\Controller\FormationController::delete
+
+stage_index:
+  path: /stage/
+  controller: App\Controller\StageController::index
+
+stage_new:
+  path: /stage/new
+  controller: App\Controller\StageController::new
+
+stage_show:
+  path: /stage/{id}
+  controller: App\Controller\StageController::show
+
+stage_edit:
+  path: /stage/{id}/edit
+  controller: App\Controller\StageController::edit
+
+stage_delete:
+  path: /stage/{id}/
+  controller: App\Controller\StageController::delete

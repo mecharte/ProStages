@@ -6,7 +6,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>NomLong</th>
                 <th>NomCourt</th>
                 <th>actions</th>
@@ -15,12 +14,12 @@
         <tbody>
         {% for formation in formations %}
             <tr>
-                <td>{{ formation.id }}</td>
                 <td>{{ formation.nomLong }}</td>
                 <td>{{ formation.nomCourt }}</td>
                 <td>
-                    <a href="{{ path('formation_show', {'id': formation.id}) }}">afficher</a>
-                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">editer</a>
+                     <a href="{{ path('formation_show', {'id': formation.id}) }}"style="color:black; text-decoration:none;"> <i class="icon-mouse-pointer"></i></a>
+                    <hr>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}"style="color:black; text-decoration:none;"><i class="icon-edit"></i></a>
                 </td>
             </tr>
         {% else %}

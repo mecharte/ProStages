@@ -10,14 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/entreprise")
- */
 class EntrepriseController extends AbstractController
 {
-    /**
-     * @Route("/", name="entreprise_index", methods={"GET"})
-     */
     public function index(EntrepriseRepository $entrepriseRepository): Response
     {
         return $this->render('entreprise/index.html.twig', [
@@ -25,9 +19,6 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="entreprise_new", methods={"GET","POST"})
-     */
     public function new(Request $request): Response
     {
         $entreprise = new Entreprise();
@@ -48,9 +39,6 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="entreprise_show", methods={"GET"})
-     */
     public function show(Entreprise $entreprise): Response
     {
         return $this->render('entreprise/show.html.twig', [
@@ -58,9 +46,6 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="entreprise_edit", methods={"GET","POST"})
-     */
     public function edit(Request $request, Entreprise $entreprise): Response
     {
         $form = $this->createForm(Entreprise1Type::class, $entreprise);
@@ -78,9 +63,6 @@ class EntrepriseController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="entreprise_delete", methods={"DELETE"})
-     */
     public function delete(Request $request, Entreprise $entreprise): Response
     {
         if ($this->isCsrfTokenValid('delete'.$entreprise->getId(), $request->request->get('_token'))) {

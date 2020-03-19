@@ -15,12 +15,12 @@
             {% for stageCourant in stages %}
         <tr>
             <td>
-                <a href="{{path('stages', {id:stageCourant.id})}}" style="color:white; text-decoration:none;">
+                <a href="{{path('stage_show', {id:stageCourant.id})}}" style="color:white; text-decoration:none;">
                     {{stageCourant.titre}}
                 </a>
             </td>
             <td>
-                <a href="{{path('entreprisesParStage', {nomEntreprise:stageCourant.nomEntreprise.getNom})}}"
+                <a href="{{path('entreprise_show',{id:stageCourant.nomEntreprise.id},{nomEntreprise:stageCourant.nomEntreprise.getNom})}}"
                     style="color:white; text-decoration:none;">
                     {{stageCourant.nomEntreprise.getNom}}
                 </a>
@@ -31,7 +31,7 @@
 
             <td>
                 {% for formationCourante in stageCourant.formations %}
-                <a href="{{path('formationParStage', {formations:formationCourante.nomCourt})}}"
+                <a href="{{path('formation_show',{id:formationCourante.id},{formations:formationCourante.nomCourt})}}"
                     style="color:white; text-decoration:none;">
                     {{formationCourante.nomCourt}}
                 </a>
@@ -39,7 +39,7 @@
             </td>
             <td>
             </a>
-            <a href="{{path('modifierUnStage', {id:stageCourant.getId})}}"
+            <a href="{{path('stage_edit', {id:stageCourant.getId})}}"
                 style="color:white; text-decoration:none;">
                 <center><i class="icon-edit"></i></center>
             </a>

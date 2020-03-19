@@ -9,7 +9,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Activite</th>
                 <th>Adresse</th>
@@ -20,14 +19,14 @@
         <tbody>
         {% for entreprise in entreprises %}
             <tr>
-                <td>{{ entreprise.id }}</td>
                 <td>{{ entreprise.nom }}</td>
                 <td>{{ entreprise.activite }}</td>
                 <td>{{ entreprise.adresse }}</td>
                 <td>{{ entreprise.siteWeb }}</td>
                 <td>
-                    <a href="{{ path('entreprise_show', {'id': entreprise.id}) }}">consulter</a>
-                    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">editer</a>
+                    <a href="{{ path('entreprise_show', {'id':entreprise.id}) }}"style="color:black; text-decoration:none;"> <i class="icon-mouse-pointer"></i></a>
+                    <hr>
+                    <a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}"style="color:black; text-decoration:none;"><i class="icon-edit"></i></a>
                 </td>
             </tr>
         {% else %}

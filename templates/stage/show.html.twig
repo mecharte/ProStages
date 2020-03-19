@@ -24,9 +24,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('stage_index') }}">retour à la liste</a>
-    <br>
-    <a href="{{ path('stage_edit', {'id': stage.id}) }}">editer</a>
+    <a href="{{ path('stage_index') }}">retour à la liste des stages</a>
+    <hr>
+    <a href="{{ path('stage_edit', {'id': stage.id}) }}"style="color:black; text-decoration:none;">editer <i class="icon-edit"></i></a>
+    <hr>
 
     {{ include('stage/_delete_form.html.twig') }}
 {% endblock %}
