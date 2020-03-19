@@ -69,7 +69,7 @@
                 <br>
                 <br>
                 {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{path('entreprise_new')}}">Rajouter une entreprise</a> <br> <br> 
+                <a href="{{path('entreprise_new')}}">Rajouter une entreprise</a> <br> <br>
                 {% endif %}
                 {% if is_granted('ROLE_USER') %}
                 <a href="{{path('stage_new')}}">Rajouter un stage</a>

@@ -149,6 +149,6 @@ class User implements UserInterface
         return $this;
     }
     public function __toString(){
-        return $this->getNom();
+        return $this->getNom()." ". $this->getPrenom() ;
     }
 }

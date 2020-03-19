@@ -4,6 +4,6 @@ easy_admin:
         - App\Entity\Formation
         - App\Entity\Entreprise
         - App\Entity\Stage
-framework:
-    validation: { enable_annotations: true }
+        - App\Entity\User
+
 
